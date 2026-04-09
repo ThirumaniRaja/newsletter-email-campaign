@@ -1,4 +1,5 @@
 com/guvi/entity/Campaign$CampaignStatus.class
+com/guvi/config/OpenApiConfig.class
 com/guvi/dto/CampaignResponse.class
 com/guvi/entity/User.class
 com/guvi/entity/EmailLog$EmailLogBuilder.class
