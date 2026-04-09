@@ -13,19 +13,18 @@ import java.util.Date;
 @Component
 public class JwtTokenProvider {
 
-    // ✅ From application.properties
     @Value("${app.jwt.secret}")
     private String jwtSecret;
 
     @Value("${app.jwt.expirationMinutes}")
     private long jwtExpirationMinutes;
 
-    // ✅ Generate signing key from property
+
     private Key getSigningKey() {
         return Keys.hmacShaKeyFor(jwtSecret.getBytes());
     }
 
-    // ✅ Generate Token
+
     public String generateToken(String username) {
         return Jwts.builder()
                 .setSubject(username) // stored in "sub"
@@ -35,12 +34,12 @@ public class JwtTokenProvider {
                 .compact();
     }
 
-    // ✅ Extract Username
+
     public String getUsernameFromToken(String token) {
-        return getClaims(token).getSubject(); // ✅ FIX
+        return getClaims(token).getSubject();
     }
 
-    // ✅ Validate Token
+
     public boolean validateToken(String token) {
         try {
             getClaims(token); // will throw exception if invalid
@@ -50,10 +49,10 @@ public class JwtTokenProvider {
         }
     }
 
-    // ✅ Common method to extract claims
+
     private Claims getClaims(String token) {
         return Jwts.parserBuilder()
-                .setSigningKey(getSigningKey()) // ✅ SAME key used everywhere
+                .setSigningKey(getSigningKey())
                 .build()
                 .parseClaimsJws(token)
                 .getBody();

@@ -7,6 +7,7 @@ import com.guvi.dto.EmailLogResponse;
 import com.guvi.dto.ApiResponse;
 import com.guvi.entity.User;
 import com.guvi.service.CampaignService;
+import com.guvi.scheduler.CampaignScheduler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,6 +25,9 @@ public class CampaignController {
 
     @Autowired
     private CampaignService campaignService;
+
+    @Autowired
+    private CampaignScheduler campaignScheduler;
 
     @PostMapping
     public ResponseEntity<ApiResponse<CampaignResponse>> createCampaign(
@@ -99,6 +103,41 @@ public class CampaignController {
         User user = (User) authentication.getPrincipal();
         List<EmailLogResponse> response = campaignService.getEmailLogs(id, user);
         return ResponseEntity.ok(ApiResponse.success(response, "Email logs retrieved successfully"));
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    //  DEBUG / SIMULATION endpoints
+    //  Use these to manually trigger email sending without waiting
+    //  for the scheduler tick. Do NOT expose in production.
+    // ─────────────────────────────────────────────────────────────
+
+    /**
+     * Manually send a specific SCHEDULED campaign right now.
+     * Useful for testing a single campaign without waiting 60s.
+     *
+     * POST /api/campaigns/{id}/trigger
+     */
+    @PostMapping("/{id}/trigger")
+    public ResponseEntity<ApiResponse<CampaignResponse>> triggerCampaign(
+            @PathVariable Long id,
+            Authentication authentication) {
+        User user = (User) authentication.getPrincipal();
+        CampaignResponse response = campaignService.triggerCampaignNow(id, user);
+        return ResponseEntity.ok(ApiResponse.success(response, "Campaign triggered and sent (mock)"));
+    }
+
+    /**
+     * Manually run the scheduler once right now — processes ALL due SCHEDULED campaigns.
+     * Equivalent to one scheduler tick firing immediately.
+     *
+     * POST /api/campaigns/trigger-all
+     */
+    @PostMapping("/trigger-all")
+    public ResponseEntity<ApiResponse<String>> triggerAllDueCampaigns(Authentication authentication) {
+        campaignScheduler.processPendingCampaigns();
+        return ResponseEntity.ok(ApiResponse.success(
+                "Scheduler tick executed — check server logs for [SCHEDULER] and [MOCK] output",
+                "Trigger complete"));
     }
 }
 

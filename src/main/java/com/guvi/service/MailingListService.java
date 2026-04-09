@@ -135,8 +135,11 @@ public class MailingListService {
     }
 
     private MailingListResponse convertToResponse(MailingList mailingList) {
-        List<SubscriberResponse> subscribers = mailingList.getSubscribers()
-                .stream()
+        List<Subscriber> rawSubscribers = mailingList.getSubscribers() != null
+                ? mailingList.getSubscribers()
+                : java.util.Collections.emptyList();
+
+        List<SubscriberResponse> subscribers = rawSubscribers.stream()
                 .map(this::convertSubscriberToResponse)
                 .collect(Collectors.toList());
 
@@ -144,7 +147,7 @@ public class MailingListService {
                 .id(mailingList.getId())
                 .name(mailingList.getName())
                 .description(mailingList.getDescription())
-                .subscriberCount(mailingList.getSubscribers().size())
+                .subscriberCount(rawSubscribers.size())
                 .createdAt(mailingList.getCreatedAt())
                 .updatedAt(mailingList.getUpdatedAt())
                 .subscribers(subscribers)

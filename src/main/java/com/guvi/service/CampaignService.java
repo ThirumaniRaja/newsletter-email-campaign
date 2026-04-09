@@ -127,16 +127,33 @@ public class CampaignService {
         List<Campaign> pendingCampaigns = campaignRepository
                 .findByStatusAndScheduledForLessThanEqual(CampaignStatus.SCHEDULED, now);
 
+        if (pendingCampaigns.isEmpty()) {
+            return;
+        }
+
+        org.slf4j.LoggerFactory.getLogger(CampaignService.class)
+                .info("[SCHEDULER] Found {} campaign(s) due for sending.", pendingCampaigns.size());
+
         for (Campaign campaign : pendingCampaigns) {
             sendCampaign(campaign);
         }
     }
 
     public void sendCampaign(Campaign campaign) {
-        emailService.sendCampaign(campaign);
-        campaign.setStatus(CampaignStatus.SENT);
-        campaign.setSentAt(LocalDateTime.now());
-        campaignRepository.save(campaign);
+        try {
+            emailService.sendCampaign(campaign);
+            campaign.setStatus(CampaignStatus.SENT);
+            campaign.setSentAt(LocalDateTime.now());
+            org.slf4j.LoggerFactory.getLogger(CampaignService.class)
+                    .info("[SCHEDULER] Campaign '{}' (ID={}) status → SENT", campaign.getName(), campaign.getId());
+        } catch (Exception e) {
+            campaign.setStatus(CampaignStatus.FAILED);
+            org.slf4j.LoggerFactory.getLogger(CampaignService.class)
+                    .error("[SCHEDULER] Campaign '{}' (ID={}) status → FAILED: {}",
+                            campaign.getName(), campaign.getId(), e.getMessage());
+        } finally {
+            campaignRepository.save(campaign);
+        }
     }
 
     public List<EmailLogResponse> getEmailLogs(Long campaignId, User user) {
@@ -149,7 +166,26 @@ public class CampaignService {
                 .collect(Collectors.toList());
     }
 
+
+    public CampaignResponse triggerCampaignNow(Long id, User user) {
+        Campaign campaign = campaignRepository.findByIdAndUser(id, user)
+                .orElseThrow(() -> new ResourceNotFoundException("Campaign not found"));
+
+        if (campaign.getStatus() == CampaignStatus.SENT) {
+            throw new InvalidScheduleTimeException("Campaign has already been sent");
+        }
+
+        org.slf4j.LoggerFactory.getLogger(CampaignService.class)
+                .info("[DEBUG TRIGGER] Manually triggering campaign '{}' (ID={})",
+                        campaign.getName(), campaign.getId());
+
+        sendCampaign(campaign);
+        return convertToResponse(campaign);
+    }
+
     private CampaignResponse convertToResponse(Campaign campaign) {
+        List<com.guvi.entity.Subscriber> subscribers = campaign.getMailingList().getSubscribers();
+        int totalSubscribers = subscribers != null ? subscribers.size() : 0;
         return CampaignResponse.builder()
                 .id(campaign.getId())
                 .name(campaign.getName())
@@ -162,7 +198,7 @@ public class CampaignService {
                 .sentAt(campaign.getSentAt())
                 .createdAt(campaign.getCreatedAt())
                 .updatedAt(campaign.getUpdatedAt())
-                .totalSubscribers(campaign.getMailingList().getSubscribers().size())
+                .totalSubscribers(totalSubscribers)
                 .build();
     }
 

@@ -8,24 +8,34 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 @Component
 @EnableScheduling
 public class CampaignScheduler {
 
     private static final Logger logger = LoggerFactory.getLogger(CampaignScheduler.class);
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     @Autowired
     private CampaignService campaignService;
 
-    // Check for pending campaigns every 1 minute (60000 milliseconds)
-    @Scheduled(fixedDelay = 60000)
+    /**
+     * Polls every N ms (configured via app.scheduler.fixedDelay) for SCHEDULED campaigns
+     * whose scheduledFor time has passed.
+     * Triggers mock email send + status update to SENT (or FAILED on error).
+     *
+     * To speed up testing, set app.scheduler.fixedDelay=10000 in application.properties.
+     */
+    @Scheduled(fixedDelayString = "${app.scheduler.fixedDelay:60000}")
     public void processPendingCampaigns() {
-        logger.info("Checking for pending campaigns to send...");
+        logger.info("[SCHEDULER] Tick at {} — checking for due campaigns...",
+                LocalDateTime.now().format(FORMATTER));
         try {
             campaignService.processPendingCampaigns();
         } catch (Exception e) {
-            logger.error("Error processing pending campaigns", e);
+            logger.error("[SCHEDULER] Unexpected error while processing campaigns: {}", e.getMessage(), e);
         }
     }
 }
-

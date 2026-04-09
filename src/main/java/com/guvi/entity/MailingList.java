@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -30,7 +31,7 @@ public class MailingList {
     private User user;
 
     @OneToMany(mappedBy = "mailingList", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Subscriber> subscribers;
+    private List<Subscriber> subscribers = new ArrayList<>();
 
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
