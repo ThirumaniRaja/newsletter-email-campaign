@@ -15,11 +15,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import org.springdoc.core.annotations.ParameterObject;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/campaigns")
+@RequestMapping("/campaigns")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class CampaignController {
 
@@ -51,7 +52,7 @@ public class CampaignController {
     @GetMapping
     public ResponseEntity<ApiResponse<Page<CampaignResponse>>> getAllCampaigns(
             Authentication authentication,
-            Pageable pageable) {
+            @ParameterObject Pageable pageable) {
         User user = (User) authentication.getPrincipal();
         Page<CampaignResponse> response = campaignService.getAllCampaigns(user, pageable);
         return ResponseEntity.ok(ApiResponse.success(response, "Campaigns retrieved successfully"));
@@ -140,4 +141,3 @@ public class CampaignController {
                 "Trigger complete"));
     }
 }
-

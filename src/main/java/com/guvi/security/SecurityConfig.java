@@ -45,16 +45,9 @@ public class SecurityConfig {
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
                 .authorizeHttpRequests(authz -> authz
-                        // ✅ PUBLIC APIs
                         .requestMatchers("/auth/**").permitAll()
-
-                        // ✅ Swagger (optional)
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
-
-                        // ✅ Allow preflight
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-
-                        // 🔒 ALL OTHER APIs SECURED
                         .anyRequest().authenticated()
                 )
 

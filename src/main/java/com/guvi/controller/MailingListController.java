@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/mailing-lists")
+@RequestMapping("/mailing-lists")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class MailingListController {
 
@@ -109,4 +109,3 @@ public class MailingListController {
         return ResponseEntity.ok(ApiResponse.success(null, "Subscriber removed successfully"));
     }
 }
-
