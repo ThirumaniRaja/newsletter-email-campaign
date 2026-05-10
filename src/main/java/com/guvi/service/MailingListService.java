@@ -7,6 +7,7 @@ import com.guvi.dto.SubscriberResponse;
 import com.guvi.entity.MailingList;
 import com.guvi.entity.Subscriber;
 import com.guvi.entity.User;
+import com.guvi.exception.DuplicateResourceException;
 import com.guvi.exception.InvalidEmailException;
 import com.guvi.exception.ResourceNotFoundException;
 import com.guvi.repository.MailingListRepository;
@@ -31,7 +32,8 @@ public class MailingListService {
 
     public MailingListResponse createMailingList(MailingListRequest request, User user) {
         if (mailingListRepository.existsByNameAndUser(request.getName(), user)) {
-            throw new InvalidEmailException("Mailing list with this name already exists");
+            throw new DuplicateResourceException("Mailing list with this name already exists");
+
         }
 
         MailingList mailingList = MailingList.builder()
@@ -60,6 +62,10 @@ public class MailingListService {
     public MailingListResponse updateMailingList(Long id, MailingListRequest request, User user) {
         MailingList mailingList = mailingListRepository.findByIdAndUser(id, user)
                 .orElseThrow(() -> new ResourceNotFoundException("Mailing list not found"));
+
+        if (mailingListRepository.existsByNameAndUserAndIdNot(request.getName(), user, id)) {
+            throw new DuplicateResourceException("Mailing list with this name already exists");
+        }
 
         mailingList.setName(request.getName());
         mailingList.setDescription(request.getDescription());

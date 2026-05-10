@@ -8,6 +8,7 @@ import com.guvi.dto.ApiResponse;
 import com.guvi.entity.User;
 import com.guvi.service.CampaignService;
 import com.guvi.scheduler.CampaignScheduler;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -32,7 +33,7 @@ public class CampaignController {
 
     @PostMapping
     public ResponseEntity<ApiResponse<CampaignResponse>> createCampaign(
-            @RequestBody CampaignRequest request,
+           @Valid @RequestBody CampaignRequest request,
             Authentication authentication) {
         User user = (User) authentication.getPrincipal();
         CampaignResponse response = campaignService.createCampaign(request, user);
@@ -71,7 +72,7 @@ public class CampaignController {
     @PutMapping("/{id}")
     public ResponseEntity<ApiResponse<CampaignResponse>> updateCampaign(
             @PathVariable Long id,
-            @RequestBody CampaignRequest request,
+           @Valid @RequestBody CampaignRequest request,
             Authentication authentication) {
         User user = (User) authentication.getPrincipal();
         CampaignResponse response = campaignService.updateCampaign(id, request, user);
@@ -81,7 +82,7 @@ public class CampaignController {
     @PostMapping("/{id}/schedule")
     public ResponseEntity<ApiResponse<CampaignResponse>> scheduleCampaign(
             @PathVariable Long id,
-            @RequestBody ScheduleCampaignRequest request,
+            @Valid @RequestBody ScheduleCampaignRequest request,
             Authentication authentication) {
         User user = (User) authentication.getPrincipal();
         CampaignResponse response = campaignService.scheduleCampaign(id, request.getScheduledFor(), user);

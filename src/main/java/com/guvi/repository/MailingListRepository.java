@@ -13,5 +13,7 @@ public interface MailingListRepository extends JpaRepository<MailingList, Long> 
     List<MailingList> findByUser(User user);
     Optional<MailingList> findByIdAndUser(Long id, User user);
     boolean existsByNameAndUser(String name, User user);
+    boolean existsByNameAndUserAndIdNot(String name, User user, Long id);
+
 }
 
