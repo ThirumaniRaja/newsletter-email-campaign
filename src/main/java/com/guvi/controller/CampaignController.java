@@ -63,7 +63,7 @@ public class CampaignController {
     public ResponseEntity<ApiResponse<Page<CampaignResponse>>> getCampaignsByStatus(
             @PathVariable String status,
             Authentication authentication,
-            Pageable pageable) {
+            @ParameterObject Pageable pageable) {
         User user = (User) authentication.getPrincipal();
         Page<CampaignResponse> response = campaignService.getCampaignsByStatus(user, status, pageable);
         return ResponseEntity.ok(ApiResponse.success(response, "Campaigns retrieved successfully"));
