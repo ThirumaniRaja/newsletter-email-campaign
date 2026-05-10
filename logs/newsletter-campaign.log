@@ -42,3 +42,170 @@
 2026-05-10 17:06:06 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
 2026-05-10 17:07:06 [scheduling-1] INFO  c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Tick at 2026-05-10 17:07:06 — checking for due campaigns...
 2026-05-10 17:08:07 [scheduling-1] INFO  c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Tick at 2026-05-10 17:08:07 — checking for due campaigns...
+2026-05-10 17:09:08 [scheduling-1] INFO  c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Tick at 2026-05-10 17:09:08 — checking for due campaigns...
+2026-05-10 17:10:09 [scheduling-1] INFO  c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Tick at 2026-05-10 17:10:09 — checking for due campaigns...
+2026-05-10 17:11:10 [scheduling-1] INFO  c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Tick at 2026-05-10 17:11:10 — checking for due campaigns...
+2026-05-10 17:12:11 [scheduling-1] INFO  c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Tick at 2026-05-10 17:12:11 — checking for due campaigns...
+2026-05-10 17:13:12 [scheduling-1] INFO  c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Tick at 2026-05-10 17:13:12 — checking for due campaigns...
+2026-05-10 17:14:13 [scheduling-1] INFO  c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Tick at 2026-05-10 17:14:13 — checking for due campaigns...
+2026-05-10 17:15:14 [scheduling-1] INFO  c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Tick at 2026-05-10 17:15:14 — checking for due campaigns...
+2026-05-10 17:24:29 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@669f7eae (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-10 17:24:39 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@23b2df56 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-10 17:24:39 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m40s759ms).
+2026-05-10 17:24:50 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@7d0fcc21 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-10 17:25:00 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@2113e36d (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-10 17:25:10 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@31d4ddc2 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-10 17:25:16 [scheduling-1] INFO  c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Tick at 2026-05-10 17:25:16 — checking for due campaigns...
+2026-05-10 17:25:20 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@6d5804b4 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-10 17:25:26 [scheduling-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@38f63756 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-10 17:25:30 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@249edd2e (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-10 17:25:36 [scheduling-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@3f8e835a (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-10 17:25:46 [scheduling-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@4ce3bdc8 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-10 17:25:46 [scheduling-1] WARN  org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 08003
+2026-05-10 17:25:46 [scheduling-1] WARN  org.hibernate.orm.jdbc.error - HikariPool-1 - Connection is not available, request timed out after 30016ms (total=9, active=0, idle=9, waiting=0)
+2026-05-10 17:25:46 [scheduling-1] WARN  org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 08003
+2026-05-10 17:25:46 [scheduling-1] WARN  org.hibernate.orm.jdbc.error - HikariPool-1 - Connection is not available, request timed out after 30016ms (total=9, active=0, idle=9, waiting=0)
+2026-05-10 17:25:46 [scheduling-1] ERROR c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Unexpected error while processing campaigns: Could not open JPA EntityManager for transaction
+org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:457)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.startTransaction(AbstractPlatformTransactionManager.java:532)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:405)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.createTransactionIfNecessary(TransactionAspectSupport.java:625)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:364)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
+	at com.guvi.service.CampaignService$$SpringCGLIB$$0.processPendingCampaigns(<generated>)
+	at com.guvi.scheduler.CampaignScheduler.processPendingCampaigns(CampaignScheduler.java:36)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:128)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$1(ScheduledMethodRunnable.java:122)
+	at io.micrometer.observation.Observation.observe(Observation.java:498)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:122)
+	at org.springframework.scheduling.config.Task$OutcomeTrackingRunnable.run(Task.java:88)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: org.hibernate.exception.JDBCConnectionException: Unable to acquire JDBC Connection [HikariPool-1 - Connection is not available, request timed out after 30016ms (total=9, active=0, idle=9, waiting=0)] [n/a]
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:49)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:34)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:115)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:101)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.acquire(LogicalConnectionManagedImpl.java:190)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.acquireConnectionIfNeeded(LogicalConnectionManagedImpl.java:87)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:126)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getConnectionForTransactionManagement(LogicalConnectionManagedImpl.java:277)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.begin(LogicalConnectionManagedImpl.java:286)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.begin(JdbcResourceLocalTransactionCoordinatorImpl.java:226)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.begin(TransactionImpl.java:75)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.beginTransaction(HibernateJpaDialect.java:138)
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:411)
+	... 23 common frames omitted
+Caused by: java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30016ms (total=9, active=0, idle=9, waiting=0)
+	at com.zaxxer.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:714)
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:184)
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:142)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:127)
+	at org.hibernate.engine.jdbc.connections.internal.DataSourceConnectionProvider.getConnection(DataSourceConnectionProvider.java:137)
+	at org.hibernate.internal.NonContextualJdbcConnectionAccess.obtainConnection(NonContextualJdbcConnectionAccess.java:47)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.acquire(LogicalConnectionManagedImpl.java:187)
+	... 31 common frames omitted
+Caused by: org.postgresql.util.PSQLException: This connection has been closed.
+	at org.postgresql.jdbc.PgConnection.checkClosed(PgConnection.java:1015)
+	at org.postgresql.jdbc.PgConnection.setNetworkTimeout(PgConnection.java:1744)
+	at com.zaxxer.hikari.pool.PoolBase.setNetworkTimeout(PoolBase.java:585)
+	at com.zaxxer.hikari.pool.PoolBase.isConnectionDead(PoolBase.java:177)
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:166)
+	... 36 common frames omitted
+2026-05-10 17:26:46 [scheduling-1] INFO  c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Tick at 2026-05-10 17:26:46 — checking for due campaigns...
+2026-05-10 17:27:46 [scheduling-1] INFO  c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Tick at 2026-05-10 17:27:46 — checking for due campaigns...
+2026-05-10 17:28:47 [scheduling-1] INFO  c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Tick at 2026-05-10 17:28:47 — checking for due campaigns...
+2026-05-10 17:29:48 [scheduling-1] INFO  c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Tick at 2026-05-10 17:29:48 — checking for due campaigns...
+2026-05-10 17:30:49 [scheduling-1] INFO  c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Tick at 2026-05-10 17:30:49 — checking for due campaigns...
+2026-05-10 17:31:50 [scheduling-1] INFO  c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Tick at 2026-05-10 17:31:50 — checking for due campaigns...
+2026-05-10 17:32:51 [scheduling-1] INFO  c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Tick at 2026-05-10 17:32:51 — checking for due campaigns...
+2026-05-10 17:34:14 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=53s468ms).
+2026-05-10 17:34:15 [scheduling-1] INFO  c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Tick at 2026-05-10 17:34:15 — checking for due campaigns...
+2026-05-10 17:35:16 [scheduling-1] INFO  c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Tick at 2026-05-10 17:35:16 — checking for due campaigns...
+2026-05-10 17:36:17 [scheduling-1] INFO  c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Tick at 2026-05-10 17:36:17 — checking for due campaigns...
+2026-05-10 17:47:44 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@94e00ad (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-10 17:47:51 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m37s81ms).
+2026-05-10 17:48:03 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@71378de4 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-10 17:48:13 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@5a206ef6 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-10 17:48:24 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@2bcfa278 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-10 17:48:26 [scheduling-1] INFO  c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Tick at 2026-05-10 17:48:26 — checking for due campaigns...
+2026-05-10 17:48:34 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@7799a2f9 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-10 17:48:36 [scheduling-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@612b7e59 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-10 17:48:44 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@aee7605 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-10 17:48:46 [scheduling-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@5067666e (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-10 17:48:54 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@3657d566 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-10 17:48:56 [scheduling-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@188d499e (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-10 17:48:56 [scheduling-1] WARN  org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 08003
+2026-05-10 17:48:56 [scheduling-1] WARN  org.hibernate.orm.jdbc.error - HikariPool-1 - Connection is not available, request timed out after 30034ms (total=8, active=0, idle=8, waiting=0)
+2026-05-10 17:48:56 [scheduling-1] WARN  org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 0, SQLState: 08003
+2026-05-10 17:48:56 [scheduling-1] WARN  org.hibernate.orm.jdbc.error - HikariPool-1 - Connection is not available, request timed out after 30034ms (total=8, active=0, idle=8, waiting=0)
+2026-05-10 17:48:56 [scheduling-1] ERROR c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Unexpected error while processing campaigns: Could not open JPA EntityManager for transaction
+org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:457)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.startTransaction(AbstractPlatformTransactionManager.java:532)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:405)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.createTransactionIfNecessary(TransactionAspectSupport.java:625)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:364)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719)
+	at com.guvi.service.CampaignService$$SpringCGLIB$$0.processPendingCampaigns(<generated>)
+	at com.guvi.scheduler.CampaignScheduler.processPendingCampaigns(CampaignScheduler.java:36)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:128)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$1(ScheduledMethodRunnable.java:122)
+	at io.micrometer.observation.Observation.observe(Observation.java:498)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:122)
+	at org.springframework.scheduling.config.Task$OutcomeTrackingRunnable.run(Task.java:88)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: org.hibernate.exception.JDBCConnectionException: Unable to acquire JDBC Connection [HikariPool-1 - Connection is not available, request timed out after 30034ms (total=8, active=0, idle=8, waiting=0)] [n/a]
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:49)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:34)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:115)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:101)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.acquire(LogicalConnectionManagedImpl.java:190)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.acquireConnectionIfNeeded(LogicalConnectionManagedImpl.java:87)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:126)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getConnectionForTransactionManagement(LogicalConnectionManagedImpl.java:277)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.begin(LogicalConnectionManagedImpl.java:286)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.begin(JdbcResourceLocalTransactionCoordinatorImpl.java:226)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.begin(TransactionImpl.java:75)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.beginTransaction(HibernateJpaDialect.java:138)
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:411)
+	... 23 common frames omitted
+Caused by: java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30034ms (total=8, active=0, idle=8, waiting=0)
+	at com.zaxxer.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:714)
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:184)
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:142)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:127)
+	at org.hibernate.engine.jdbc.connections.internal.DataSourceConnectionProvider.getConnection(DataSourceConnectionProvider.java:137)
+	at org.hibernate.internal.NonContextualJdbcConnectionAccess.obtainConnection(NonContextualJdbcConnectionAccess.java:47)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.acquire(LogicalConnectionManagedImpl.java:187)
+	... 31 common frames omitted
+Caused by: org.postgresql.util.PSQLException: This connection has been closed.
+	at org.postgresql.jdbc.PgConnection.checkClosed(PgConnection.java:1015)
+	at org.postgresql.jdbc.PgConnection.setNetworkTimeout(PgConnection.java:1744)
+	at com.zaxxer.hikari.pool.PoolBase.setNetworkTimeout(PoolBase.java:585)
+	at com.zaxxer.hikari.pool.PoolBase.isConnectionDead(PoolBase.java:177)
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:166)
+	... 36 common frames omitted
+2026-05-10 17:49:56 [scheduling-1] INFO  c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Tick at 2026-05-10 17:49:56 — checking for due campaigns...
+2026-05-10 17:50:56 [scheduling-1] INFO  c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Tick at 2026-05-10 17:50:56 — checking for due campaigns...
+2026-05-10 17:51:57 [scheduling-1] INFO  c.guvi.scheduler.CampaignScheduler - [SCHEDULER] Tick at 2026-05-10 17:51:57 — checking for due campaigns...

@@ -20,6 +20,7 @@
 /Users/24481104tr/Thiru/Java_Projects/Guvi-mini-projects/newsletter-email-campaign/src/main/java/com/guvi/entity/MailingList.java
 /Users/24481104tr/Thiru/Java_Projects/Guvi-mini-projects/newsletter-email-campaign/src/main/java/com/guvi/entity/Subscriber.java
 /Users/24481104tr/Thiru/Java_Projects/Guvi-mini-projects/newsletter-email-campaign/src/main/java/com/guvi/entity/User.java
+/Users/24481104tr/Thiru/Java_Projects/Guvi-mini-projects/newsletter-email-campaign/src/main/java/com/guvi/exception/DuplicateResourceException.java
 /Users/24481104tr/Thiru/Java_Projects/Guvi-mini-projects/newsletter-email-campaign/src/main/java/com/guvi/exception/GlobalExceptionHandler.java
 /Users/24481104tr/Thiru/Java_Projects/Guvi-mini-projects/newsletter-email-campaign/src/main/java/com/guvi/exception/InvalidEmailException.java
 /Users/24481104tr/Thiru/Java_Projects/Guvi-mini-projects/newsletter-email-campaign/src/main/java/com/guvi/exception/InvalidScheduleTimeException.java

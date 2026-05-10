@@ -3,21 +3,28 @@ package com.guvi.entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "mailing_lists")
-@Data
+@Table(name = "mailing_lists", uniqueConstraints = {
+    @UniqueConstraint(columnNames = {"user_id", "name"})
+})
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class MailingList {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long id;
 
     @Column(nullable = false)
@@ -30,6 +37,7 @@ public class MailingList {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    @Builder.Default
     @OneToMany(mappedBy = "mailingList", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Subscriber> subscribers = new ArrayList<>();
 
