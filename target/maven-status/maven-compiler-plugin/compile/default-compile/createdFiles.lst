@@ -51,6 +51,7 @@ com/guvi/dto/LoginRequest$LoginRequestBuilder.class
 com/guvi/dto/RegisterRequest.class
 com/guvi/entity/EmailLog$EmailStatus.class
 com/guvi/entity/Subscriber.class
+com/guvi/exception/DuplicateResourceException.class
 com/guvi/dto/MailingListResponse$MailingListResponseBuilder.class
 com/guvi/security/JwtAuthenticationFilter.class
 com/guvi/exception/UserAlreadyExistsException.class

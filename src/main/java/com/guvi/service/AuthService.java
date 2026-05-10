@@ -45,13 +45,12 @@ public class AuthService {
                 .build();
 
         User savedUser = userRepository.save(user);
-        String token = jwtTokenProvider.generateToken(savedUser.getUsername());
 
         return AuthResponse.builder()
                 .id(savedUser.getId())
                 .username(savedUser.getUsername())
                 .email(savedUser.getEmail())
-                .token(token)
+                .token(null)
                 .message("User registered successfully")
                 .build();
     }
